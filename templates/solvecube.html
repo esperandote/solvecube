@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>cube</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+</head>
+<body onload="init()">
+  <div class='directions' id='up'></div>
+  <div class='directions' id='left'></div>
+  <div class='directions' id='right'></div>
+  <div class='directions' id='down'></div>
+  <canvas id="mainCanvas" width="600px" height="600px"></canvas>
+  <div id='controlPanel'>
+    <div id='textbox1'>点击以选择颜色</div>
+    <div id='colors'>
+      <div id='blue'></div>
+      <div id='orange'></div>
+      <div id='white'></div>
+      <div id='red'></div>
+      <div id='yellow'></div>
+      <div id='green'></div>
+    </div>
+    <div id='buttons'>
+      <div id='button1'>计算复原公式</div>
+      <div id='button2'>帮助</div>
+      <div id='button3'>复原动画(完整播放)</div>
+      <div id='button4'>复原动画(逐步播放)</div>
+    </div>
+    <div id='result'></div>
+    <div id='textbox2'>
+      快捷键：1选蓝色 2选橙色 3选白色 4选红色 5选黄色 6选绿色<br />
+      w向上旋转 a向左旋转 s向下旋转 d向右旋转 enter下一步
+    </div>
+    <div id='textbox3'>
+      <a href='http://www.miitbeian.gov.cn/' target='_blank'>京ICP备18046104号</a>
+    </div>
+  </div>
+  <script type="text/javascript" src='/static/js/three.js'></script>
+  <script type="text/javascript" src='/static/js/main.js'></script>
+</body>
+</html>

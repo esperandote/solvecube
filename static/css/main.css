@@ -1,0 +1,122 @@
+body{
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-size: 25px;
+}
+#mainCanvas{
+  float: left;
+}
+.directions{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 30px solid black;
+}
+#up{
+  left: 270px;
+  top: 0;
+  border-bottom-color: #aaa;
+  transition: border-bottom-color 1s;
+}
+#up:hover{
+  border-bottom-color: #8cc;
+}
+#left{
+  left: 0;
+  top: 270px;
+  border-right-color: #aaa;
+  transition: border-right-color 1s;
+}
+#left:hover{
+  border-right-color: #8cc;
+}
+#right{
+  left: 540px;
+  top: 270px;
+  border-left-color: #aaa;
+  transition: border-left-color 1s;
+}
+#right:hover{
+  border-left-color: #8cc;
+}
+#down{
+  left: 270px;
+  top: 540px;
+  border-top-color: #aaa;
+  transition: border-top-color 1s;
+}
+#down:hover{
+  border-top-color: #8cc;
+}
+#controlPanel{
+  width: 600px;
+  height: 600px;
+  float: left;
+}
+#textbox1{
+  width: 100px;
+  height: 50px;
+  margin-left: 10px;
+  float: left;
+  color: #fde;
+}
+#colors>div{
+  box-sizing: border-box;
+  width: 60px;
+  height: 45px;
+  margin-left: 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  float: left;
+  cursor: pointer;
+  color: #000;
+  text-align: center;
+  padding-top:10px;
+}
+#blue{background-color: #37f;}
+#orange{background-color: #f70;}
+#white{background-color: #fff;}
+#red{background-color: #e12;}
+#yellow{background-color: #ff5;}
+#green{background-color: #7f5;}
+#buttons{
+  margin-top: 50px;
+  width: 600px;
+  height: 150px;
+}
+#buttons>div{
+  box-sizing: border-box;
+  width: 240px;
+  height: 45px;
+  margin-left: 40px;
+  margin-top: 20px;
+  padding-top: 9px;
+  border-radius: 5px;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  background-color: #3aa;
+  transition: background-color 1s;
+}
+#buttons>div:hover{
+  background-color: #0db;
+}
+#result{
+  height: 260px;
+  width: 500px;
+  margin-left: 50px;
+}
+#textbox2{
+  box-sizing: border-box;
+  padding: 20px;
+  width: 600px;
+  height: 90px;
+  font-size: 20px;
+  text-align: center;
+}
+#textbox3{
+  width: 600px;
+  height: 50px;
+  text-align: center;
+}

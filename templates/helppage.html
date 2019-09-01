@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='zh'>
+	<head>
+		<meta charset='utf-8' />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<title>帮助</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/help.css" />
+	</head>
+	<body>
+		<div id='mainDiv'>
+			<h4>操作说明</h4>
+			<p>1.选择颜色：通过点击颜色栏或快捷键1～6选择颜色，被选择的颜色上将出现“√”。</p>
+			<p>2.填色：按照待复原魔方填色。点击魔方色块，即可将其填上选择的颜色。每面的中心块禁止填色。</p>
+			<p>
+				3.转动魔方：填色过程中，可整体转动魔方。
+				点击魔方周围的三角形方向键，或用快捷键w（上）a（左）s（下）d（右）。
+			</p>
+			<p>
+				4.计算复原公式：填色完毕后，点击“计算复原公式”，即可在下方显示复原公式。
+				如果显示“输入错误，请认真检查～”，则说明所填色不属于魔方可能达到的状态，原因可能是填色错误或魔方被拆卸过。
+				公式说明：U代表上面（白色），D代表下面（黄色），L代表左面（橙色），
+				R代表右面（红色），F代表前面（绿色），B代表后面（蓝色）。
+				字母后面加’则代表逆时针转90度，加2则代表转180度，无附加符号则代表顺时针转90度。
+			</p>
+			<p>
+				5.演示复原动画：计算复原公式后可选择演示复原动画。
+				点击“复原动画（完整播放）”即从头到尾自动播放复原动画。
+				点击“复原动画（逐步播放）”即播放复原动画的一步，重复点击直到魔方复原。
+			</p>
+			<p>
+				6.特别说明：演示复原动画过程中如果切换到其它标签页，可能出现错误。
+			</p>
+
+		</div>
+		<script>
+		(function(){
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https'){
+		   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		  }
+		  else{
+		  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		  }
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+		</script>
+	</body>
+</html>

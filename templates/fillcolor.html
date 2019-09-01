@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="google-site-verification" content="LAWDLzyq_dCWFoEjkzmxX6Owtiwk74-_2LKlll1J2ZI" />
+		<meta name="baidu_union_verify" content="193d69cc00a6f10dd0035917c3605517" />
+		<meta name="baidu-site-verification" content="d6sY72eA6O" />
+		<meta charset='utf-8' />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+		<script src="/static/js/jquery.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="/static/css/mystyle.css" />
+		<title>魔方还原助手</title>
+	</head>
+	<body>
+		<div style='display:none;'>
+			魔方还原助手,无需公式,帮助你一键复原魔方
+		</div>
+		<div id='part1'>
+			<div id='d0' class='row1 col4'></div>
+			<div id='d1' class='row1 col5'></div>
+			<div id='d2' class='row1 col6'></div>
+			<div id='d3' class='row2 col4'></div>
+			<div class='row2 col5'></div>
+			<div id='d4' class='row2 col6'></div>
+			<div id='d5' class='row3 col4'></div>
+			<div id='d6' class='row3 col5'></div>
+			<div id='d7' class='row3 col6'></div>
+			<div id='d8' class='row4 col1'></div>
+			<div id='d9' class='row4 col2'></div>
+			<div id='d10' class='row4 col3'></div>
+			<div id='d11' class='row4 col4'></div>
+			<div id='d12' class='row4 col5'></div>
+			<div id='d13' class='row4 col6'></div>
+			<div id='d14' class='row4 col7'></div>
+			<div id='d15' class='row4 col8'></div>
+			<div id='d16' class='row4 col9'></div>
+			<div id='d17' class='row4 col10'></div>
+			<div id='d18' class='row4 col11'></div>
+			<div id='d19' class='row4 col12'></div>
+			<div id='d20' class='row5 col1'></div>
+			<div class='row5 col2'></div>
+			<div id='d21' class='row5 col3'></div>
+			<div id='d22' class='row5 col4'></div>
+			<div class='row5 col5'></div>
+			<div id='d23' class='row5 col6'></div>
+			<div id='d24' class='row5 col7'></div>
+			<div class='row5 col8'></div>
+			<div id='d25' class='row5 col9'></div>
+			<div id='d26' class='row5 col10'></div>
+			<div class='row5 col11'></div>
+			<div id='d27' class='row5 col12'></div>
+			<div id='d28' class='row6 col1'></div>
+			<div id='d29' class='row6 col2'></div>
+			<div id='d30' class='row6 col3'></div>
+			<div id='d31' class='row6 col4'></div>
+			<div id='d32' class='row6 col5'></div>
+			<div id='d33' class='row6 col6'></div>
+			<div id='d34' class='row6 col7'></div>
+			<div id='d35' class='row6 col8'></div>
+			<div id='d36' class='row6 col9'></div>
+			<div id='d37' class='row6 col10'></div>
+			<div id='d38' class='row6 col11'></div>
+			<div id='d39' class='row6 col12'></div>
+			<div id='d40' class='row7 col4'></div>
+			<div id='d41' class='row7 col5'></div>
+			<div id='d42' class='row7 col6'></div>
+			<div id='d43' class='row8 col4'></div>
+			<div class='row8 col5'></div>
+			<div id='d44' class='row8 col6'></div>
+			<div id='d45' class='row9 col4'></div>
+			<div id='d46' class='row9 col5'></div>
+			<div id='d47' class='row9 col6'></div>
+		</div>
+		<div id='part2'>
+			<div id='colorpicker'>
+				<div class='white1'></div>
+				<div class='yellow2'></div>
+				<div class='green3'></div>
+				<div class='blue4'></div>
+				<div class='orange5'></div>
+				<div class='red6'></div>
+			</div>
+			<div id='form1'>
+				<form action='/helppage' method='post'>
+					<input type='submit' value='帮助' id='help' />
+				</form>
+			</div>
+			<div id='form2'>
+				<form action='/fillcolor' method='post'>
+					<input type='hidden' name='state' id='state' />
+					<input type='submit' value='计算复原公式' id='submit' />
+				</form>
+			</div>
+			<div id='result'></div>
+			<div id='hint'>
+				U:上面(白)&nbsp;&nbsp;F:前面(绿)&nbsp;&nbsp;L:左面(橙)<br />
+				R:右面(红)&nbsp;&nbsp;B:后面(蓝)&nbsp;&nbsp;D:下面(黄)<br />
+				大写:顺时针90度&nbsp;&nbsp;大写':逆时针90度&nbsp;&nbsp;大写2:180度
+			</div>
+		</div>
+		<div id='footer'>
+			<a href='http://www.miitbeian.gov.cn/' target='_blank' style='text-decoration:none;color:#055'>京ICP备18046104号</a>
+		</div>
+		<script>
+			var colortofill='?';//当前被选择的颜色,白黄绿蓝橙红分别用字符'1'~'6'表示,未选择时为'?'
+			var colors=new Array();//数组colors将储存填色情况
+			var definecolor=['#fff','#ff5','#7f5','#37f','#f70','#e12'];//定义各颜色的具体rgb值
+
+			//点击调色板上某上色块,触发颜色选择
+			document.getElementById('colorpicker').addEventListener('click',(event)=>{
+				colortofill=event.target.className.slice(-1);
+			})
+
+			//点击某块,触发填色及记录填色信息
+			document.getElementById('part1').addEventListener('click',(event)=>{
+				//event.target为被触发事件的元素,即被填色的块
+				if(event.target.id!='part1'){
+					if(colortofill==='?'){
+						alert('请选择颜色');
+					}
+					else{
+						console.log(definecolor[parseInt(colortofill)-1]);
+						event.target.style.background=definecolor[parseInt(colortofill)-1];//修改对应色块颜色
+						colors[parseInt(event.target.id.slice(1))]=colortofill;//将该色块颜色信息存入colors
+					}
+				}
+			})
+
+			var colorsstr='';
+			$SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+			$(function() {
+			$('input#submit').bind('click', function() {
+				colorsstr='';
+				for(i in colors)colorsstr+=colors[i];
+			  $.getJSON($SCRIPT_ROOT + '/_solve', {
+				state:colorsstr,
+			  }, function(data) {
+				$("#result").html(data.result);
+			  });
+			  return false;
+			});
+			});
+		</script>
+		<script>
+		(function(){
+			var bp = document.createElement('script');
+			var curProtocol = window.location.protocol.split(':')[0];
+			if (curProtocol === 'https'){
+		   bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		  }
+		  else{
+		  bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		  }
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(bp, s);
+		})();
+		</script>
+	</body>
+</html>

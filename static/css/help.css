@@ -1,0 +1,18 @@
+body{
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-size: 2vw;
+}
+#mainDiv{
+  position: absolute;
+  top: 10vw;
+  left: 15vw;
+  width: 70vw;
+}
+p{
+  transition: color 1s;
+}
+p:hover{
+  color: #cff;
+}
